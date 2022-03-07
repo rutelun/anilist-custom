@@ -48,6 +48,13 @@
       "options": {
         "lintFilePatterns": ["packages/frontend/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "gql-generate": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "cd packages/frontend && graphql-codegen"
+      },
+      "cwd": "packages/frontend"
     }
   },
   "tags": []

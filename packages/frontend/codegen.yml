@@ -1,0 +1,19 @@
+schema: common/gql/schema.graphql
+generates:
+  common/gql/types.ts:
+    plugins:
+      - typescript
+  containers:
+    documents: containers/**/*.graphql
+    preset: near-operation-file
+    presetConfig:
+      extension: .generated.ts
+      baseTypesPath: common/gql/types.ts
+    plugins:
+      - typescript-operations
+      - typescript-react-query
+    config:
+      fetcher: graphql-request
+    hooks:
+      afterOneFileWrite:
+        - prettier --write
